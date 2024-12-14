@@ -37,6 +37,5 @@ void consumer()
 int main() {
     std::thread producerThread(producer); // Создание потока производителя
     std::thread consumerThread(consumer); // Создание потока потребителя
-    producerThread.join(); // Ожидание завершения потока производителя
-    consumerThread.join(); // Ожидание завершения потока потребителя
+    producerThread.join();
 }
