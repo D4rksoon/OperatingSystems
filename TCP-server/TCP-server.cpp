@@ -9,7 +9,7 @@
 #include <netdb.h>
 #include <errno.h>
 
-volatile sig_atomic_t wasSigHup = 0; // сигнал SIGHUP
+volatile sig_atomic_t wasSigHup = 0;
 void sigHupHandler(int r) 
 {
 	wasSigHup = 1;
