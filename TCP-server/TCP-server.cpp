@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <netdb.h>
+#include <errno.h>
 
 volatile sig_atomic_t wasSigHup = 0; // сигнал SIGHUP
 void sigHupHandler(int r) 
@@ -34,7 +35,7 @@ int main()
 	addr.sin_port = htons(8000);
 
 	// Привязывание сокета к адресу
-	int addrBind = bind(server_fd, (struct sockaddr *)&addr, (socklen_t*)&addrLen);
+	int addrBind = bind(server_fd, (struct sockaddr *)&addr, sizeof(addr));
 	if(addrBind == -1) {
     	printf("Bind error");
     	exit(EXIT_FAILURE);
